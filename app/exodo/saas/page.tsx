@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./page.module.css";
 
-const videoId = "1_waxqx3OR0Lui9SvqJGSMVUSQHV2_-4u";
-const videoUrl = `https://drive.google.com/file/d/${videoId}/view?usp=sharing`;
+const videoUrl = "/media/exodo/saas-demo-v1.mp4";
 
 export const metadata: Metadata = {
   title: "SaaS Explainers | Éxodo × Kongllective",
@@ -23,16 +22,20 @@ export default function ExodoSaas() {
         <h1>Make the product<br /><em>easier to see.</em></h1>
         <p className={styles.intro}>Some features make sense as soon as you see them. Éxodo helps turn product stories and existing assets into animated content for launches, demos and marketing, while your team keeps the creative direction.</p>
         <div className={styles.player}>
-          <iframe
-            src={`https://drive.google.com/file/d/${videoId}/preview`}
-            title="Éxodo animated explainer demo"
-            allow="autoplay; fullscreen"
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
+          <video
+            controls
+            playsInline
+            preload="metadata"
+            poster="/media/exodo/saas-demo-poster-v1.jpg"
+            aria-label="Éxodo animated explainer demo"
+            width={1280}
+            height={720}
+          >
+            <source src={videoUrl} type="video/mp4" />
+            Your browser does not support this video. <a href={videoUrl}>Open the demo directly</a>.
+          </video>
         </div>
-        <p className={styles.fallback}>If the player does not load, <a href={videoUrl} target="_blank" rel="noreferrer">open the demo directly</a>.</p>
+        <p className={styles.fallback}>Press play to watch with sound. You can also <a href={videoUrl} target="_blank" rel="noreferrer">open the demo directly</a>.</p>
         <div className={styles.closing}>
           <div><span>01 / Product storytelling</span><span>02 / Animation production</span><span>03 / Launch content</span></div>
           <a href="mailto:alex@kongllective.com?subject=Éxodo%20SaaS%20explainer">Talk to Alex <span aria-hidden="true">↗</span></a>
