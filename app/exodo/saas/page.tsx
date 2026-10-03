@@ -38,7 +38,7 @@ export default function ExodoSaas() {
         <p className={styles.fallback}>Press play to watch with sound. You can also <a href={videoUrl} target="_blank" rel="noreferrer">open the demo directly</a>.</p>
         <div className={styles.closing}>
           <div><span>01 / Product storytelling</span><span>02 / Animation production</span><span>03 / Launch content</span></div>
-          <a href="mailto:alex@kongllective.com?subject=Éxodo%20SaaS%20explainer">Talk to Alex <span aria-hidden="true">↗</span></a>
+          <a href="https://wa.me/16724721285?text=Hi%20Alex%2C%20I'd%20like%20to%20discuss%20%C3%89xodo%20SaaS%20animation." target="_blank" rel="noopener noreferrer">WhatsApp Alex <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <footer className={styles.footer}><span>Producer-led creative partnerships</span><span>Vancouver · Mexico City</span></footer>

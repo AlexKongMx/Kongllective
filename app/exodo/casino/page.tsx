@@ -68,7 +68,7 @@ export default function ExodoCasino() {
         <div className={styles.videoNote}><span>Éxodo Animation / Demo 2026</span><a href={video} target="_blank" rel="noreferrer">Open video directly <span aria-hidden="true">↗</span></a></div>
       </section>
 
-      <section className={styles.contact} aria-labelledby="contact-title"><p className={styles.kicker}>Let’s talk production</p><h2 id="contact-title">What’s your<br /><em>next world?</em></h2><p>Share your creative brief, visual direction and production needs. Alex can connect you with Éxodo to explore the right fit.</p><a className={styles.primary} href="mailto:alex@kongllective.com?subject=%C3%89xodo%20casino%20%26%20gaming%20production">Talk to Alex <span aria-hidden="true">↗</span></a><Link href="/exodo/saas" className={styles.otherWork}>Also explore Éxodo’s SaaS demo <span aria-hidden="true">↗</span></Link></section>
+      <section className={styles.contact} aria-labelledby="contact-title"><p className={styles.kicker}>Let’s talk production</p><h2 id="contact-title">What’s your<br /><em>next world?</em></h2><p>Share your creative brief, visual direction and production needs. Alex can connect you with Éxodo to explore the right fit.</p><a className={styles.primary} href="https://wa.me/16724721285?text=Hi%20Alex%2C%20I'd%20like%20to%20discuss%20%C3%89xodo%20casino%20and%20gaming." target="_blank" rel="noopener noreferrer">WhatsApp Alex <span aria-hidden="true">↗</span></a><Link href="/exodo/saas" className={styles.otherWork}>Also explore Éxodo’s SaaS demo <span aria-hidden="true">↗</span></Link></section>
       <footer className={styles.footer}><Link href="/">Kongllective / Selected partners</Link><span>Vancouver · Mexico City</span></footer>
     </main>
   );
