@@ -1,0 +1,12 @@
+.page{min-height:100svh;background:#080808;color:#f4f1ea;font-family:Arial,Helvetica,sans-serif}
+.header,.footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px clamp(24px,5vw,84px);font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.header{border-bottom:1px solid #30302d}.header>span,.footer{color:#aaa9a5}.brand{font-weight:900;font-size:18px;letter-spacing:-.03em}.brand span{color:#ff4b20}
+.content{max-width:1260px;margin:auto;padding:clamp(52px,7vw,108px) clamp(24px,5vw,84px) 90px}
+.kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#ff704d;margin:0 0 22px}
+.content h1{font-size:clamp(48px,8.4vw,112px);line-height:.94;letter-spacing:-.065em;text-transform:uppercase;max-width:1100px;margin:0 0 27px;font-weight:900}.content h1 em{font-style:normal;color:#ff4b20}
+.intro{max-width:730px;font-size:clamp(17px,2vw,22px);line-height:1.5;color:#c9c8c3;margin:0 0 46px}
+.player{width:100%;aspect-ratio:16/9;background:#181818;border:1px solid #383833;box-shadow:0 30px 80px #0007}.player video{width:100%;height:100%;object-fit:contain;display:block;background:#000}
+.fallback{font-size:13px;color:#aaa9a5;margin:15px 0 75px}
+.closing{border-top:1px solid #393935;padding-top:28px;display:flex;justify-content:space-between;gap:28px;align-items:flex-end}.closing div{display:flex;flex-wrap:wrap;gap:13px 25px}.closing div span{color:#aaa9a5;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.closing>a{white-space:nowrap;color:#ff704d;font-weight:700;font-size:15px}.closing>a span{margin-left:15px}
+.footer{border-top:1px solid #30302d}
+@media(max-width:620px){.header{flex-wrap:wrap}.header>span{max-width:135px;text-align:right;line-height:1.5}.content{padding-bottom:60px}.content h1{font-size:clamp(36px,10.5vw,64px);letter-spacing:-.055em}.player{margin-inline:0;width:100%}.fallback{margin-bottom:55px}.closing{display:block}.closing>a{display:inline-block;margin-top:35px}.footer{flex-wrap:wrap;align-items:flex-start;line-height:1.5}}
