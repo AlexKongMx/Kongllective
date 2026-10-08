@@ -320,6 +320,27 @@ function DisciplineCarousel() {
 export default function Home() {
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      if (document.body.contains(script)) document.body.removeChild(script);
+    };
+  }, []);
+
+  function openCalendly() {
+    const w = window as unknown as {
+      Calendly?: { initPopupWidget: (options: { url: string }) => void };
+    };
+    if (w.Calendly) {
+      w.Calendly.initPopupWidget({ url: "https://calendly.com/alex-kongllective/30min" });
+    } else {
+      window.open("https://calendly.com/alex-kongllective/30min", "_blank", "noopener,noreferrer");
+    }
+  }
+
   async function sendLead(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formElement = event.currentTarget;
@@ -547,6 +568,12 @@ export default function Home() {
             <p>Business development, international partnerships, funding and strategic representation built around your strengths.</p>
             <a href="#contact">Join the conversation <Arrow /></a>
           </article>
+        </div>
+        <div className="paths__booking">
+          <p>Prefer to talk it through directly?</p>
+          <button className="button button--orange" type="button" onClick={openCalendly}>
+            Book a discovery call <Arrow />
+          </button>
         </div>
       </section>
 
