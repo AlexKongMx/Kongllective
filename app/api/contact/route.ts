@@ -31,8 +31,9 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "Please complete the required fields" }, { status: 400 });
   }
 
-  const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
-  if (!webhookUrl) return Response.json({ ok: false, error: "Form unavailable" }, { status: 503 });
+  const webhookUrl =
+    process.env.CONTACT_WEBHOOK_URL ||
+    "https://n8n.srv1457832.hstgr.cloud/webhook/kongllective-contact";
 
   try {
     const response = await fetch(webhookUrl, {
