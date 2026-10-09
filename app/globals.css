@@ -1035,7 +1035,7 @@ footer .copyright { grid-column: 1 / -1; padding-top: 30px; border-top: 1px soli
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.75) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,.44) 0%, rgba(0,0,0,.60) 100%);
   z-index: 0;
   transition: opacity .3s ease;
 }
