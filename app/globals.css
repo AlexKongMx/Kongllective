@@ -573,6 +573,9 @@ footer .copyright { grid-column: 1 / -1; padding-top: 30px; border-top: 1px soli
   text-transform: uppercase;
   opacity: .65;
 }
-.paths__booking .button {
-  width: auto;
+.paths__booking .calendly-inline-widget {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  overflow: hidden;
 }
