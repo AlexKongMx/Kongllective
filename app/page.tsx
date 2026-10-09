@@ -520,12 +520,12 @@ export default function Home() {
         </div>
         <div className="credibility-strip" aria-label="Selected production experience">
           <p>Worked with artists, productions and studios behind projects for</p>
-          <div>
-            <span>Disney</span>
-            <span>Sony</span>
-            <span>Netflix</span>
-            <span>Nintendo</span>
-            <span>WB</span>
+          <div className="credibility-logos">
+            <img src="/logos/disney.svg" alt="Disney" />
+            <img src="/logos/sony.svg" alt="Sony" />
+            <img src="/logos/netflix.svg" alt="Netflix" />
+            <img src="/logos/nintendo.svg" alt="Nintendo" />
+            <img src="/logos/wb.svg" alt="Warner Bros" />
           </div>
         </div>
       </section>
