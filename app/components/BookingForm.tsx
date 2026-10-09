@@ -48,7 +48,7 @@ export default function BookingForm() {
     setSlots([]);
     setSelected(null);
     try {
-      const res = await fetch("/api/booking", {
+      const res = await fetch("https://n8n.srv1457832.hstgr.cloud/webhook/kongllective-booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "availability" }),
@@ -86,7 +86,7 @@ export default function BookingForm() {
     setError("");
     const name = `${firstName.trim()} ${lastName.trim()}`.trim();
     try {
-      const res = await fetch("/api/booking", {
+      const res = await fetch("https://n8n.srv1457832.hstgr.cloud/webhook/kongllective-booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
