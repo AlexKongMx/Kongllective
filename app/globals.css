@@ -990,3 +990,35 @@ footer .copyright { grid-column: 1 / -1; padding-top: 30px; border-top: 1px soli
     font-size: 28px;
   }
 }
+
+/* ---- Credibility logos ---- */
+.credibility-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  padding: 8px 0;
+}
+.credibility-logos img {
+  height: 28px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  opacity: .65;
+  filter: grayscale(100%);
+  transition: all .25s ease;
+}
+.credibility-logos img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+@media (max-width: 600px) {
+  .credibility-logos {
+    gap: 28px;
+  }
+  .credibility-logos img {
+    height: 22px;
+  }
+}
