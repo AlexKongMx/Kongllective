@@ -330,15 +330,15 @@ export default function Home() {
     };
   }, []);
 
-  function openCalendly() {
+  function handleBookCall(e: React.MouseEvent<HTMLAnchorElement>) {
     const w = window as unknown as {
       Calendly?: { initPopupWidget: (options: { url: string }) => void };
     };
     if (w.Calendly) {
+      e.preventDefault();
       w.Calendly.initPopupWidget({ url: "https://calendly.com/alex-kongllective/30min" });
-    } else {
-      window.open("https://calendly.com/alex-kongllective/30min", "_blank", "noopener,noreferrer");
     }
+    // Without the Calendly script, the anchor's default behavior opens the link in a new tab
   }
 
   async function sendLead(event: FormEvent<HTMLFormElement>) {
@@ -571,9 +571,15 @@ export default function Home() {
         </div>
         <div className="paths__booking">
           <p>Prefer to talk it through directly?</p>
-          <button className="button button--orange" type="button" onClick={openCalendly}>
+          <a
+            className="button button--orange"
+            href="https://calendly.com/alex-kongllective/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleBookCall}
+          >
             Book a discovery call <Arrow />
-          </button>
+          </a>
         </div>
       </section>
 
