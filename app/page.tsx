@@ -4,38 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import type { FormEvent, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
 import BookingForm from "./components/BookingForm";
 
-function DisciplineCard({ item, index, total }: { item: { name: string; gifs: string[] }; index: number; total: number }) {
-  const [gifIndex, setGifIndex] = useState(0);
-
-  useEffect(() => {
-    if (item.gifs.length <= 1) return;
-    const interval = setInterval(() => {
-      setGifIndex((prev) => (prev + 1) % item.gifs.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [item.gifs.length]);
-
-  return (
-    <div
-      className="discipline-card"
-      aria-hidden={index >= total}
-      style={{ backgroundImage: `url(${item.gifs[gifIndex]})` }}
-    >
-      <span>{String((index % total) + 1).padStart(2, "0")}</span>
-      <strong>{item.name}</strong>
-      <i aria-hidden="true">↗</i>
-    </div>
-  );
-}
-
 const disciplines = [
-  { name: "Animation", gifs: ["/showcase/animation1.gif", "/showcase/animation2.gif", "/showcase/animation3.gif", "/showcase/animation4.gif"] },
-  { name: "VFX", gifs: ["/showcase/vfx1.gif", "/showcase/vfx2.gif", "/showcase/vfx3.gif", "/showcase/vfx4.gif"] },
-  { name: "Cinematics", gifs: ["/showcase/cinematics.gif", "/showcase/cinematics2.gif", "/showcase/cinematics3.gif", "/showcase/cinematics4.gif"] },
-  { name: "Virtual Production", gifs: ["/showcase/vp.gif"] },
-  { name: "XR", gifs: ["/showcase/xr.gif"] },
-  { name: "Advertising", gifs: ["/showcase/advertising.gif"] },
-  { name: "Film", gifs: ["/showcase/film1.gif", "/showcase/film2.gif", "/showcase/film3.gif", "/showcase/film4.gif"] },
+  { name: "Animation", gif: "/showcase/animation.gif" },
+  { name: "VFX", gif: "/showcase/vfx.gif" },
+  { name: "Cinematics", gif: "/showcase/cinematics.gif" },
+  { name: "Virtual Production", gif: "/showcase/vp.gif" },
+  { name: "XR", gif: "/showcase/xr.gif" },
+  { name: "Advertising", gif: "/showcase/advertising.gif" },
+  { name: "Film", gif: "/showcase/film.gif" },
 ];
 
 const capabilities = [
@@ -331,12 +307,16 @@ function DisciplineCarousel() {
     >
       <div className="discipline-track">
         {[...disciplines, ...disciplines].map((item, index) => (
-          <DisciplineCard
+          <div
+            className="discipline-card"
             key={`${item.name}-${index}`}
-            item={item}
-            index={index}
-            total={disciplines.length}
-          />
+            aria-hidden={index >= disciplines.length}
+            style={{ backgroundImage: `url(${item.gif})` }}
+          >
+            <span>{String((index % disciplines.length) + 1).padStart(2, "0")}</span>
+            <strong>{item.name}</strong>
+            <i aria-hidden="true">↗</i>
+          </div>
         ))}
       </div>
     </div>
