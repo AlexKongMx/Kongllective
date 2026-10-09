@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
+import BookingForm from "./components/BookingForm";
 
 const disciplines = [
   "Animation",
@@ -320,16 +321,6 @@ function DisciplineCarousel() {
 export default function Home() {
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      if (document.body.contains(script)) document.body.removeChild(script);
-    };
-  }, []);
-
   async function sendLead(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formElement = event.currentTarget;
@@ -559,12 +550,8 @@ export default function Home() {
           </article>
         </div>
         <div className="paths__booking">
-          <p>Prefer to talk it through directly? Pick a time below.</p>
-          <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/alex-kongllective/30min"
-            style={{ minWidth: "320px", height: "700px" }}
-          />
+          <p>Prefer to talk it through directly?</p>
+          <BookingForm />
         </div>
       </section>
 
