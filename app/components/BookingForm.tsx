@@ -139,6 +139,7 @@ export default function BookingForm() {
 
       {(status === "ready" || status === "sending") && (
         <>
+          <p className="booking__step-label">Step 1 — Choose a day</p>
           <div className="booking__days" aria-label="Available days">
             {days.map((d) => {
               const sample = slots.find((s) => dayKey(s.startTime) === d)!;
@@ -162,6 +163,7 @@ export default function BookingForm() {
             })}
           </div>
 
+          <p className="booking__step-label">Step 2 — Pick a time</p>
           <div className="booking__slots">
             {choices.map((slot) => (
               <button
@@ -187,6 +189,7 @@ export default function BookingForm() {
           {selected && (
             <form className="booking__form" onSubmit={reserve}>
               <h4>Tell us about your project</h4>
+              <p className="booking__form-sub">Step 3 — We'll send the calendar invite to your email</p>
               <div className="booking__row">
                 <label>
                   First name
