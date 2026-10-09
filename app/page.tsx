@@ -5,13 +5,13 @@ import type { FormEvent, KeyboardEvent as ReactKeyboardEvent, PointerEvent as Re
 import BookingForm from "./components/BookingForm";
 
 const disciplines = [
-  "Animation",
-  "VFX",
-  "Games",
-  "Virtual Production",
-  "XR",
-  "Advertising",
-  "Film",
+  { name: "Animation", gif: "/showcase/animation.gif" },
+  { name: "VFX", gif: "/showcase/vfx.gif" },
+  { name: "Cinematics", gif: "/showcase/cinematics.gif" },
+  { name: "Virtual Production", gif: "/showcase/vp.gif" },
+  { name: "XR", gif: "/showcase/xr.gif" },
+  { name: "Advertising", gif: "/showcase/advertising.gif" },
+  { name: "Film", gif: "/showcase/film.gif" },
 ];
 
 const capabilities = [
@@ -307,9 +307,14 @@ function DisciplineCarousel() {
     >
       <div className="discipline-track">
         {[...disciplines, ...disciplines].map((item, index) => (
-          <div className="discipline-card" key={`${item}-${index}`} aria-hidden={index >= disciplines.length}>
+          <div
+            className="discipline-card"
+            key={`${item.name}-${index}`}
+            aria-hidden={index >= disciplines.length}
+            style={{ backgroundImage: `url(${item.gif})` }}
+          >
             <span>{String((index % disciplines.length) + 1).padStart(2, "0")}</span>
-            <strong>{item}</strong>
+            <strong>{item.name}</strong>
             <i aria-hidden="true">↗</i>
           </div>
         ))}
@@ -370,7 +375,7 @@ export default function Home() {
         </div>
 
         <div className="hero__foot">
-          <span>Animation · VFX · Games · Film · Advertising · Immersive</span>
+          <span>Animation · VFX · Cinematics · Film · Advertising · Immersive</span>
           <a href="#intro" aria-label="Scroll to learn more">Explore ↓</a>
         </div>
       </section>
