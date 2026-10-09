@@ -2,15 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent, KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
+import BookingForm from "./components/BookingForm";
 
 const disciplines = [
-  "Animation",
-  "VFX",
-  "Games",
-  "Virtual Production",
-  "XR",
-  "Advertising",
-  "Film",
+  { name: "Animation", gif: "/showcase/animation.gif" },
+  { name: "VFX", gif: "/showcase/vfx.gif" },
+  { name: "Cinematics", gif: "/showcase/cinematics.gif" },
+  { name: "Virtual Production", gif: "/showcase/vp.gif" },
+  { name: "XR", gif: "/showcase/xr.gif" },
+  { name: "Advertising", gif: "/showcase/advertising.gif" },
+  { name: "Film", gif: "/showcase/film.gif" },
 ];
 
 const capabilities = [
@@ -306,9 +307,14 @@ function DisciplineCarousel() {
     >
       <div className="discipline-track">
         {[...disciplines, ...disciplines].map((item, index) => (
-          <div className="discipline-card" key={`${item}-${index}`} aria-hidden={index >= disciplines.length}>
+          <div
+            className="discipline-card"
+            key={`${item.name}-${index}`}
+            aria-hidden={index >= disciplines.length}
+            style={{ backgroundImage: `url(${item.gif})` }}
+          >
             <span>{String((index % disciplines.length) + 1).padStart(2, "0")}</span>
-            <strong>{item}</strong>
+            <strong>{item.name}</strong>
             <i aria-hidden="true">↗</i>
           </div>
         ))}
@@ -319,27 +325,6 @@ function DisciplineCarousel() {
 
 export default function Home() {
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      if (document.body.contains(script)) document.body.removeChild(script);
-    };
-  }, []);
-
-  function openCalendly() {
-    const w = window as unknown as {
-      Calendly?: { initPopupWidget: (options: { url: string }) => void };
-    };
-    if (w.Calendly) {
-      w.Calendly.initPopupWidget({ url: "https://calendly.com/alex-kongllective/30min" });
-    } else {
-      window.open("https://calendly.com/alex-kongllective/30min", "_blank", "noopener,noreferrer");
-    }
-  }
 
   async function sendLead(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -390,7 +375,7 @@ export default function Home() {
         </div>
 
         <div className="hero__foot">
-          <span>Animation · VFX · Games · Film · Advertising · Immersive</span>
+          <span>Animation · VFX · Cinematics · Film · Advertising · Immersive</span>
           <a href="#intro" aria-label="Scroll to learn more">Explore ↓</a>
         </div>
       </section>
@@ -540,12 +525,12 @@ export default function Home() {
         </div>
         <div className="credibility-strip" aria-label="Selected production experience">
           <p>Worked with artists, productions and studios behind projects for</p>
-          <div>
-            <span>Disney</span>
-            <span>Sony</span>
-            <span>Netflix</span>
-            <span>Nintendo</span>
-            <span>WB</span>
+          <div className="credibility-logos">
+            <img src="/logos/disney.svg" alt="Disney" />
+            <img src="/logos/sony.svg" alt="Sony" />
+            <img src="/logos/netflix.svg" alt="Netflix" />
+            <img src="/logos/nintendo.svg" alt="Nintendo" />
+            <img src="/logos/wb.svg" alt="Warner Bros" />
           </div>
         </div>
       </section>
@@ -571,9 +556,7 @@ export default function Home() {
         </div>
         <div className="paths__booking">
           <p>Prefer to talk it through directly?</p>
-          <button className="button button--orange" type="button" onClick={openCalendly}>
-            Book a discovery call <Arrow />
-          </button>
+          <BookingForm />
         </div>
       </section>
 
