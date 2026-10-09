@@ -119,7 +119,7 @@ export default function BookingForm() {
       <div className="booking__header">
         <span className="booking__eyebrow">30 min · Google Meet</span>
         <h3>Pick a time that works for you</h3>
-        <p>Two focused slots each weekday, Vancouver time.</p>
+
       </div>
 
       {status === "loading" && (
